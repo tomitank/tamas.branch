@@ -1,0 +1,33 @@
+{
+  "name": "tamas.branch",
+  "version": "1.0.0",
+  "description": "Branch structured menu for react",
+  "main": "tamas.branch.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomitank/tamas.branch.git"
+  },
+  "keywords": [
+    "tamas",
+    "branch",
+    "react"
+  ],
+  "author": "Tamas Kuzmics",
+  "contributors": [
+    {
+      "name": "Tamas Kuzmics - tomitank",
+      "email": "tanky.hu@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tomitank/tamas.branch/issues"
+  },
+  "homepage": "https://github.com/tomitank/tamas.branch#readme",
+  "dependencies": {
+    "tamas.tooltip": "^1.0.1"
+  }
+}
