@@ -1,0 +1,129 @@
+:root {
+    --tamas-branch-leaf-size: 50px;
+    --tamas-branch-line-size: 5px;
+    --tamas-branch-leaf-color: #ccc;
+}
+
+@keyframes bounce-leaf {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+	40% {transform: translateY(-8px);}
+	60% {transform: translateY(-4px);}
+}
+
+.tamas-branch-wrapper {
+    z-index: 1;
+    flex-grow: 1;
+    display: flex;
+    padding: 10px;
+    position: relative;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.tamas-branch-wrapper .tamas-branch-column {
+    flex-grow: 1;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.tamas-branch-wrapper .tamas-branch-column:last-of-type {
+    flex-grow: 0;
+}
+
+.tamas-branch-column .tamas-branch-leaf {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tamas-branch-leaf.has-top-leaf {
+    padding-top: 20px;
+}
+
+.tamas-branch-leaf .tamas-branch-name {
+    color: black;
+    font-size: 16px;
+    position: relative;
+    padding-left: calc(var(--tamas-branch-leaf-size) / 2 + var(--tamas-branch-line-size));
+}
+
+.tamas-branch-leaf .tamas-branch-icon {
+    width: var(--tamas-branch-leaf-size);
+    height: var(--tamas-branch-leaf-size);
+    padding: 0px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--tamas-branch-leaf-color);
+}
+.tamas-branch-leaf .tamas-branch-icon:hover {
+    background-color: #ddd;
+}
+
+.tamas-branch-leaf .tamas-branch-icon.danger {
+    color: white;
+    background-color: #BD271E;
+}
+.tamas-branch-leaf .tamas-branch-icon.danger:hover {
+    background-color: #ad231c;
+}
+
+.tamas-branch-leaf .tamas-branch-icon.success {
+    color: white;
+    background-color: #21BA45;
+}
+.tamas-branch-leaf .tamas-branch-icon.success:hover {
+    background-color: #16ab39;
+}
+
+.tamas-branch-leaf .tamas-branch-icon.primary {
+    color: white;
+    background-color: #07C;
+}
+.tamas-branch-leaf .tamas-branch-icon.primary:hover {
+    background-color: rgb(1, 107, 184);
+}
+
+.tamas-branch-leaf .tamas-branch-icon.active-leaf {
+    border: solid 3px black;
+}
+
+/*.tamas-branch-leaf .tamas-branch-icon.active-leaf > *,*/
+.tamas-branch-leaf .tamas-branch-icon:hover > * {
+    animation: bounce-leaf 2s ease infinite;
+}
+
+.tamas-branch-leaf.has-top-leaf .tamas-branch-icon::before {
+    z-index: -1;
+    content: '';
+    top: -100vh;
+    height: 100vh;
+    position: absolute;
+    width: var(--tamas-branch-line-size);
+    background-color: var(--tamas-branch-leaf-color);
+}
+
+.tamas-branch-leaf.has-top-leaf .tamas-branch-icon.active-leaf::before {
+    top: calc(-100vh - 3px); /* - active border */
+}
+
+.tamas-branch-leaf.has-right-leaf .tamas-branch-icon::after {
+    z-index: -1;
+    content: '';
+    left: 100%;
+    width: 100vw;
+    position: absolute;
+    height: var(--tamas-branch-line-size);
+    background-color: var(--tamas-branch-leaf-color);
+}
+
+.tamas-branch-leaf.has-right-leaf .tamas-branch-icon.active-leaf::after {
+    left: calc(100% + 3px); /* + active border */
+}
